@@ -3,6 +3,7 @@ import { Nunito } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import NewsScrollbar from '@/components/NewsScrollbar'
+import { Analytics } from '@vercel/analytics/next'
 
 const nunito = Nunito({
   subsets: ['latin'],
@@ -27,6 +28,7 @@ export default function RootLayout({
         <Header />
         <NewsScrollbar />
         {children}
+        <Analytics />
       </body>
     </html>
   )
