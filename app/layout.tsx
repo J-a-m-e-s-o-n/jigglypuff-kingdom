@@ -3,6 +3,7 @@ import { Nunito } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import NewsScrollbar from '@/components/NewsScrollbar'
+import MusicPlayer from '@/components/MusicPlayer'
 import { Analytics } from '@vercel/analytics/next'
 
 const nunito = Nunito({
@@ -28,6 +29,7 @@ export default function RootLayout({
         <Header />
         <NewsScrollbar />
         {children}
+        <MusicPlayer />
         <Analytics />
       </body>
     </html>
