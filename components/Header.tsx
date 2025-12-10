@@ -10,6 +10,7 @@ export default function Header() {
     { name: 'Story', href: '#origin-story' },
     { name: 'Community', href: '#collection-quest' },
     { name: 'Join the Movement', href: '#movement' },
+    { name: 'Index', href: 'https://jigglypuffindex.company/', external: true },
   ]
 
   const subLinks = [
@@ -49,8 +50,10 @@ export default function Header() {
               <a
                 key={link.name}
                 href={link.href}
+                target={link.external ? '_blank' : undefined}
+                rel={link.external ? 'noopener noreferrer' : undefined}
                 className={`px-5 py-2.5 text-gray-700 hover:text-white font-medium rounded-full bg-white/80 hover:bg-gradient-to-r hover:from-pink-400 hover:to-pink-500 border border-pink-200/50 hover:border-pink-400/50 transition-all duration-300 hover:scale-105 backdrop-blur-sm ${
-                  index === 0 ? 'bubble-float' : index === 1 ? 'bubble-float-delay-1' : 'bubble-float-delay-2'
+                  index === 0 ? 'bubble-float' : index === 1 ? 'bubble-float-delay-1' : index === 2 ? 'bubble-float-delay-2' : ''
                 }`}
                 style={{
                   boxShadow: '0 8px 16px rgba(244, 114, 182, 0.4), 0 4px 8px rgba(244, 114, 182, 0.3)',
@@ -110,9 +113,11 @@ export default function Header() {
                 <a
                   key={link.name}
                   href={link.href}
+                  target={link.external ? '_blank' : undefined}
+                  rel={link.external ? 'noopener noreferrer' : undefined}
                   onClick={() => setIsMenuOpen(false)}
                   className={`px-5 py-3 text-gray-700 hover:text-white font-medium rounded-full bg-white/80 hover:bg-gradient-to-r hover:from-pink-400 hover:to-pink-500 border border-pink-200/50 hover:border-pink-400/50 transition-all duration-300 active:scale-95 backdrop-blur-sm ${
-                    index === 0 ? 'bubble-float' : index === 1 ? 'bubble-float-delay-1' : 'bubble-float-delay-2'
+                    index === 0 ? 'bubble-float' : index === 1 ? 'bubble-float-delay-1' : index === 2 ? 'bubble-float-delay-2' : ''
                   }`}
                   style={{
                     boxShadow: '0 8px 16px rgba(244, 114, 182, 0.4), 0 4px 8px rgba(244, 114, 182, 0.3)',
