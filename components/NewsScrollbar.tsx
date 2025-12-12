@@ -93,16 +93,16 @@ export default function NewsScrollbar() {
   }, [])
 
   return (
-    <div className="fixed top-16 sm:top-20 left-0 right-0 z-40 bg-gradient-to-r from-pink-500 to-pink-400 text-white py-3 shadow-lg border-b border-pink-300/50">
+    <div className="fixed top-14 sm:top-16 md:top-20 left-0 right-0 z-40 bg-gradient-to-r from-pink-500 to-pink-400 text-white py-2 sm:py-3 shadow-lg border-b border-pink-300/50">
       <div className="flex items-center overflow-hidden">
         {/* News Label */}
-        <div className="flex-shrink-0 px-4 sm:px-6 lg:px-8 bg-pink-600/80 backdrop-blur-sm z-10 rounded-r-full shadow-lg border-r-2 border-pink-700/50 relative">
-          <div className="flex items-center space-x-2 whitespace-nowrap">
-            <span className="text-lg font-bold">📰</span>
-            <span className="font-bold text-sm sm:text-base">Latest News</span>
+        <div className="flex-shrink-0 px-3 sm:px-4 md:px-6 lg:px-8 bg-pink-600/80 backdrop-blur-sm z-10 rounded-r-full shadow-lg border-r-2 border-pink-700/50 relative">
+          <div className="flex items-center space-x-1.5 sm:space-x-2 whitespace-nowrap">
+            <span className="text-base sm:text-lg font-bold">📰</span>
+            <span className="font-bold text-xs sm:text-sm md:text-base">Latest News</span>
           </div>
           {/* Tube entrance effect */}
-          <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-r from-pink-600/80 to-transparent pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-6 sm:w-8 bg-gradient-to-r from-pink-600/80 to-transparent pointer-events-none"></div>
         </div>
 
         {/* Scrolling Tweets */}
@@ -111,26 +111,26 @@ export default function NewsScrollbar() {
           className="flex-1 overflow-x-hidden scrollbar-hide relative"
         >
           {/* Fade effect at the entrance */}
-          <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-pink-500 via-pink-500/80 to-transparent z-10 pointer-events-none"></div>
-          <div ref={contentRef} className="flex items-center space-x-8 whitespace-nowrap">
+          <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-12 bg-gradient-to-r from-pink-500 via-pink-500/80 to-transparent z-10 pointer-events-none"></div>
+          <div ref={contentRef} className="flex items-center space-x-4 sm:space-x-6 md:space-x-8 whitespace-nowrap">
             {tweets.map((tweet) => (
               <a
                 key={tweet.id}
                 href={tweet.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-4 hover:text-pink-100 transition-colors duration-200 group flex-shrink-0"
+                className="flex items-center space-x-2 sm:space-x-3 md:space-x-4 hover:text-pink-100 transition-colors duration-200 group flex-shrink-0 active:scale-95"
               >
-                <div className="flex items-center space-x-3">
-                  <span className="text-pink-200 group-hover:text-pink-100">🐦</span>
-                  <span className="text-sm sm:text-base font-medium">
+                <div className="flex items-center space-x-2 sm:space-x-3">
+                  <span className="text-pink-200 group-hover:text-pink-100 text-sm sm:text-base">🐦</span>
+                  <span className="text-xs sm:text-sm md:text-base font-medium">
                     {tweet.text}
                   </span>
-                  <span className="text-pink-200 text-xs sm:text-sm">
+                  <span className="text-pink-200 text-[10px] sm:text-xs md:text-sm hidden sm:inline">
                     {tweet.author} • {tweet.timestamp}
                   </span>
                 </div>
-                <span className="text-pink-200 group-hover:text-white">→</span>
+                <span className="text-pink-200 group-hover:text-white text-sm sm:text-base">→</span>
               </a>
             ))}
             {/* Duplicate for seamless loop */}
@@ -140,18 +140,18 @@ export default function NewsScrollbar() {
                 href={tweet.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-4 hover:text-pink-100 transition-colors duration-200 group flex-shrink-0"
+                className="flex items-center space-x-2 sm:space-x-3 md:space-x-4 hover:text-pink-100 transition-colors duration-200 group flex-shrink-0 active:scale-95"
               >
-                <div className="flex items-center space-x-3">
-                  <span className="text-pink-200 group-hover:text-pink-100">🐦</span>
-                  <span className="text-sm sm:text-base font-medium">
+                <div className="flex items-center space-x-2 sm:space-x-3">
+                  <span className="text-pink-200 group-hover:text-pink-100 text-sm sm:text-base">🐦</span>
+                  <span className="text-xs sm:text-sm md:text-base font-medium">
                     {tweet.text}
                   </span>
-                  <span className="text-pink-200 text-xs sm:text-sm">
+                  <span className="text-pink-200 text-[10px] sm:text-xs md:text-sm hidden sm:inline">
                     {tweet.author} • {tweet.timestamp}
                   </span>
                 </div>
-                <span className="text-pink-200 group-hover:text-white">→</span>
+                <span className="text-pink-200 group-hover:text-white text-sm sm:text-base">→</span>
               </a>
             ))}
           </div>

@@ -3,6 +3,7 @@ import CollectionQuestSection from '@/components/CollectionQuestSection'
 import CreatorFeeSection from '@/components/CreatorFeeSection'
 import OriginStorySection from '@/components/OriginStorySection'
 import MovementSection from '@/components/MovementSection'
+import IndexSection from '@/components/IndexSection'
 import GettingStartedSection from '@/components/GettingStartedSection'
 import SocialLinksFooter from '@/components/SocialLinksFooter'
 
@@ -12,6 +13,7 @@ export default function Home() {
       <HeroSection />
       <CollectionQuestSection />
       <CreatorFeeSection />
+      <IndexSection />
       <OriginStorySection />
       <MovementSection />
       <GettingStartedSection />

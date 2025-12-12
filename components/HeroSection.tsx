@@ -13,7 +13,7 @@ export default function HeroSection() {
   }
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 sm:pt-36">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 sm:pt-28 md:pt-32 lg:pt-36">
       {/* Animated Background - Clouds and Jigglypuffs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         {/* Floating Clouds */}
@@ -38,6 +38,7 @@ export default function HeroSection() {
             fill
             className="object-contain opacity-70"
             sizes="60px"
+            loading="lazy"
           />
         </div>
         <div className="float-jigglypuff-2 absolute" style={{ width: '50px', height: '50px', top: '28%', animationDelay: '-3s' }}>
@@ -47,6 +48,7 @@ export default function HeroSection() {
             fill
             className="object-contain opacity-60"
             sizes="50px"
+            loading="lazy"
           />
         </div>
         <div className="float-jigglypuff-3 absolute" style={{ width: '70px', height: '70px', top: '44%', animationDelay: '-6s' }}>
@@ -56,6 +58,7 @@ export default function HeroSection() {
             fill
             className="object-contain opacity-65"
             sizes="70px"
+            loading="lazy"
           />
         </div>
         <div className="float-jigglypuff-1 absolute" style={{ width: '55px', height: '55px', top: '60%', animationDelay: '-15s' }}>
@@ -65,6 +68,7 @@ export default function HeroSection() {
             fill
             className="object-contain opacity-70"
             sizes="55px"
+            loading="lazy"
           />
         </div>
         <div className="float-jigglypuff-2 absolute" style={{ width: '65px', height: '65px', top: '76%', animationDelay: '-25s' }}>
@@ -74,6 +78,7 @@ export default function HeroSection() {
             fill
             className="object-contain opacity-60"
             sizes="65px"
+            loading="lazy"
           />
         </div>
         <div className="float-jigglypuff-3 absolute" style={{ width: '45px', height: '45px', top: '92%', animationDelay: '-35s' }}>
@@ -83,6 +88,7 @@ export default function HeroSection() {
             fill
             className="object-contain opacity-65"
             sizes="45px"
+            loading="lazy"
           />
         </div>
 
@@ -94,6 +100,7 @@ export default function HeroSection() {
             fill
             className="object-contain opacity-65"
             sizes="55px"
+            loading="lazy"
           />
         </div>
         <div className="float-jigglypuff-2 absolute" style={{ width: '65px', height: '65px', top: '34%', animationDelay: '-10s' }}>
@@ -103,6 +110,7 @@ export default function HeroSection() {
             fill
             className="object-contain opacity-60"
             sizes="65px"
+            loading="lazy"
           />
         </div>
         <div className="float-jigglypuff-3 absolute" style={{ width: '50px', height: '50px', top: '50%', animationDelay: '-20s' }}>
@@ -112,6 +120,7 @@ export default function HeroSection() {
             fill
             className="object-contain opacity-70"
             sizes="50px"
+            loading="lazy"
           />
         </div>
         <div className="float-jigglypuff-1 absolute" style={{ width: '60px', height: '60px', top: '66%', animationDelay: '-30s' }}>
@@ -121,6 +130,7 @@ export default function HeroSection() {
             fill
             className="object-contain opacity-65"
             sizes="60px"
+            loading="lazy"
           />
         </div>
         <div className="float-jigglypuff-2 absolute" style={{ width: '55px', height: '55px', top: '82%', animationDelay: '-40s' }}>
@@ -130,6 +140,7 @@ export default function HeroSection() {
             fill
             className="object-contain opacity-60"
             sizes="55px"
+            loading="lazy"
           />
         </div>
 
@@ -141,6 +152,7 @@ export default function HeroSection() {
             fill
             className="object-contain opacity-50"
             sizes="80px"
+            loading="lazy"
           />
         </div>
         <div className="float-jigglypuff-3 absolute" style={{ width: '70px', height: '88px', top: '22%', animationDelay: '-14s' }}>
@@ -150,6 +162,7 @@ export default function HeroSection() {
             fill
             className="object-contain opacity-45"
             sizes="70px"
+            loading="lazy"
           />
         </div>
         <div className="float-jigglypuff-1 absolute" style={{ width: '75px', height: '94px', top: '38%', animationDelay: '-17s' }}>
@@ -159,6 +172,7 @@ export default function HeroSection() {
             fill
             className="object-contain opacity-50"
             sizes="75px"
+            loading="lazy"
           />
         </div>
         <div className="float-jigglypuff-2 absolute" style={{ width: '65px', height: '81px', top: '54%', animationDelay: '-27s' }}>
@@ -168,6 +182,7 @@ export default function HeroSection() {
             fill
             className="object-contain opacity-45"
             sizes="65px"
+            loading="lazy"
           />
         </div>
         <div className="float-jigglypuff-3 absolute" style={{ width: '85px', height: '106px', top: '70%', animationDelay: '-37s' }}>
@@ -177,6 +192,7 @@ export default function HeroSection() {
             fill
             className="object-contain opacity-50"
             sizes="85px"
+            loading="lazy"
           />
         </div>
         <div className="float-jigglypuff-1 absolute" style={{ width: '72px', height: '90px', top: '86%', animationDelay: '-47s' }}>
@@ -186,6 +202,7 @@ export default function HeroSection() {
             fill
             className="object-contain opacity-45"
             sizes="72px"
+            loading="lazy"
           />
         </div>
       </div>
@@ -197,55 +214,56 @@ export default function HeroSection() {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-pink-100/20 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="section-container relative z-10 text-center">
-        <div className="floating-card p-8 sm:p-12 max-w-4xl mx-auto">
+      <div className="section-container relative z-10 text-center px-4">
+        <div className="floating-card p-6 sm:p-8 md:p-12 max-w-4xl mx-auto">
           {/* Main Header */}
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-4 bg-gradient-to-r from-pink-500 via-pink-400 to-pink-300 bg-clip-text text-transparent">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-pink-500 via-pink-400 to-pink-300 bg-clip-text text-transparent leading-tight">
             Jigglypuff Kingdom
           </h1>
           
           {/* Subheader */}
-          <p className="text-xl sm:text-2xl text-gray-700 mb-8 font-medium">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 mb-6 sm:mb-8 font-medium leading-relaxed">
             A unified community with one mission.
           </p>
 
           {/* Jigglypuff Card Image */}
-          <div className="mb-8 flex justify-center items-center relative">
+          <div className="mb-6 sm:mb-8 flex justify-center items-center relative">
             {/* Pink Aura Behind Card */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="card-aura absolute w-80 h-96 sm:w-96 sm:h-[28rem] bg-gradient-to-r from-pink-400/40 via-pink-500/50 to-pink-400/40 rounded-full blur-3xl"></div>
-              <div className="card-aura absolute w-72 h-[22rem] sm:w-[22rem] sm:h-[26rem] bg-gradient-to-r from-pink-300/50 via-pink-400/60 to-pink-300/50 rounded-full blur-2xl" style={{ animationDelay: '0.5s' }}></div>
-              <div className="card-aura absolute w-64 h-80 sm:w-80 sm:h-96 bg-gradient-to-r from-pink-200/60 via-pink-300/70 to-pink-200/60 rounded-full blur-xl" style={{ animationDelay: '1s' }}></div>
+              <div className="card-aura absolute w-64 h-80 sm:w-80 sm:h-96 md:w-96 md:h-[28rem] bg-gradient-to-r from-pink-400/40 via-pink-500/50 to-pink-400/40 rounded-full blur-3xl"></div>
+              <div className="card-aura absolute w-56 h-72 sm:w-72 sm:h-[22rem] md:w-[22rem] md:h-[26rem] bg-gradient-to-r from-pink-300/50 via-pink-400/60 to-pink-300/50 rounded-full blur-2xl" style={{ animationDelay: '0.5s' }}></div>
+              <div className="card-aura absolute w-48 h-64 sm:w-64 sm:h-80 md:w-80 md:h-96 bg-gradient-to-r from-pink-200/60 via-pink-300/70 to-pink-200/60 rounded-full blur-xl" style={{ animationDelay: '1s' }}></div>
             </div>
             
             {/* Card Container with Float Animation */}
-            <div className="relative w-64 h-80 sm:w-80 sm:h-96 card-float z-10">
-              <div className="relative w-full h-full rounded-3xl shadow-floating-lg overflow-hidden border-4 border-pink-300/50 bg-gradient-to-br from-pink-100 to-pink-200">
+            <div className="relative w-48 h-60 sm:w-64 sm:h-80 md:w-80 md:h-96 card-float z-10 max-w-[90vw]">
+              <div className="relative w-full h-full rounded-2xl sm:rounded-3xl shadow-floating-lg overflow-hidden border-2 sm:border-4 border-pink-300/50 bg-gradient-to-br from-pink-100 to-pink-200">
                 <Image
                   src="/jigglypuff-card.webp"
                   alt="1st Edition Jigglypuff Card"
                   fill
-                  className="object-contain p-2 rounded-3xl"
+                  className="object-contain p-2 rounded-2xl sm:rounded-3xl"
                   priority
-                  sizes="(max-width: 640px) 256px, 320px"
+                  sizes="(max-width: 640px) 192px, (max-width: 768px) 256px, 320px"
                 />
               </div>
             </div>
           </div>
 
           {/* Contract Address */}
-          <div className="mb-8">
-            <label className="block text-sm font-semibold text-gray-600 mb-2">
+          <div className="mb-6 sm:mb-8">
+            <label className="block text-xs sm:text-sm font-semibold text-gray-600 mb-2">
               Contract Address
             </label>
-            <div className="flex items-center justify-center gap-2 bg-gray-50 rounded-xl p-3 border border-pink-200 max-w-md mx-auto">
-              <code className="text-xs sm:text-sm text-gray-700 font-mono flex-1 truncate">
+            <div className="flex items-center justify-center gap-2 bg-gray-50 rounded-xl p-2.5 sm:p-3 border border-pink-200 max-w-full sm:max-w-md mx-auto">
+              <code className="text-[10px] sm:text-xs md:text-sm text-gray-700 font-mono flex-1 break-all sm:truncate text-center sm:text-left px-1">
                 {contractAddress}
               </code>
               <button
                 onClick={copyToClipboard}
-                className="text-pink-500 hover:text-pink-600 px-3 py-1 rounded-lg hover:bg-pink-50 transition-colors"
+                className="text-pink-500 hover:text-pink-600 active:scale-95 px-2 sm:px-3 py-1 rounded-lg hover:bg-pink-50 transition-all duration-120 flex-shrink-0"
                 title="Copy to clipboard"
+                aria-label="Copy contract address"
               >
                 📋
               </button>
@@ -253,18 +271,18 @@ export default function HeroSection() {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center w-full">
             <a
               href={pumpFunLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary w-full sm:w-auto"
+              className="btn-primary w-full sm:w-auto text-center"
             >
               Buy $JIGGLYPUFF
             </a>
             <a
               href={joinQuestLink}
-              className="btn-secondary w-full sm:w-auto"
+              className="btn-secondary w-full sm:w-auto text-center"
             >
               Join the Quest
             </a>

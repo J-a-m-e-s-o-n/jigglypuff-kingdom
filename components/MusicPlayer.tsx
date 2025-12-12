@@ -173,37 +173,37 @@ export default function MusicPlayer() {
 
       {/* Minimized view */}
       {isMinimized ? (
-        <div className="fixed bottom-4 right-4 z-50">
-          <div className="bg-white/90 backdrop-blur-md rounded-full shadow-lg border border-pink-200/50 p-3 flex items-center gap-3">
+        <div className="fixed bottom-3 right-3 sm:bottom-4 sm:right-4 z-50">
+          <div className="bg-white/90 backdrop-blur-md rounded-full shadow-lg border border-pink-200/50 p-2 sm:p-3 flex items-center gap-2 sm:gap-3">
             {/* Play/Pause Button */}
             <button
               onClick={togglePlay}
-              className="p-2 rounded-full bg-gradient-to-r from-pink-400 to-pink-500 hover:from-pink-500 hover:to-pink-600 text-white transition-all duration-300 hover:scale-105 shadow-md flex-shrink-0"
+              className="p-1.5 sm:p-2 rounded-full bg-gradient-to-r from-pink-400 to-pink-500 hover:from-pink-500 hover:to-pink-600 text-white transition-all duration-300 hover:scale-105 active:scale-95 shadow-md flex-shrink-0"
               aria-label={isPlaying ? 'Pause' : 'Play'}
             >
               {isPlaying ? (
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
                 </svg>
               ) : (
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M8 5v14l11-7z" />
                 </svg>
               )}
             </button>
 
             {/* Track Name */}
-            <p className="text-sm font-semibold text-gray-700 truncate max-w-[120px]">
+            <p className="text-xs sm:text-sm font-semibold text-gray-700 truncate max-w-[80px] sm:max-w-[120px]">
               {tracks[currentTrack]?.name || 'No Track'}
             </p>
 
             {/* Expand Button */}
             <button
               onClick={() => setIsMinimized(false)}
-              className="p-1.5 rounded-full hover:bg-pink-100 transition-colors flex-shrink-0"
+              className="p-1 sm:p-1.5 rounded-full hover:bg-pink-100 active:scale-95 transition-colors flex-shrink-0"
               aria-label="Expand player"
             >
-              <svg className="w-4 h-4 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
               </svg>
             </button>
@@ -211,38 +211,38 @@ export default function MusicPlayer() {
         </div>
       ) : (
         /* Full view */
-        <div className="fixed bottom-4 right-4 z-50">
-        <div className="bg-white/90 backdrop-blur-md rounded-2xl shadow-lg border border-pink-200/50 p-4 min-w-[280px]">
+        <div className="fixed bottom-3 right-3 sm:bottom-4 sm:right-4 z-50">
+        <div className="bg-white/90 backdrop-blur-md rounded-xl sm:rounded-2xl shadow-lg border border-pink-200/50 p-3 sm:p-4 min-w-[240px] sm:min-w-[280px] max-w-[calc(100vw-1.5rem)]">
           {/* Header with Minimize Button */}
-          <div className="flex items-center justify-between mb-3">
-            <div className="flex-1 text-center">
-              <p className="text-sm font-semibold text-gray-700 truncate">
+          <div className="flex items-center justify-between mb-2 sm:mb-3">
+            <div className="flex-1 text-center min-w-0">
+              <p className="text-xs sm:text-sm font-semibold text-gray-700 truncate">
                 {tracks[currentTrack]?.name || 'No Track'}
               </p>
-              <p className="text-xs text-gray-500">
+              <p className="text-[10px] sm:text-xs text-gray-500">
                 {currentTrack + 1} / {tracks.length}
               </p>
             </div>
             <button
               onClick={() => setIsMinimized(true)}
-              className="p-1.5 rounded-full hover:bg-pink-100 transition-colors ml-2 flex-shrink-0"
+              className="p-1 sm:p-1.5 rounded-full hover:bg-pink-100 active:scale-95 transition-colors ml-2 flex-shrink-0"
               aria-label="Minimize player"
             >
-              <svg className="w-4 h-4 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
               </svg>
             </button>
           </div>
 
         {/* Controls */}
-        <div className="flex items-center justify-center gap-3 mb-3">
+        <div className="flex items-center justify-center gap-2 sm:gap-3 mb-2 sm:mb-3">
           {/* Previous Track */}
           <button
             onClick={previousTrack}
-            className="p-2 rounded-full hover:bg-pink-100 transition-colors"
+            className="p-1.5 sm:p-2 rounded-full hover:bg-pink-100 active:scale-95 transition-colors"
             aria-label="Previous track"
           >
-            <svg className="w-5 h-5 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 sm:w-5 sm:h-5 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0019 16V8a1 1 0 00-1.6-.8l-5.334 4zM4.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0011 16V8a1 1 0 00-1.6-.8l-5.334 4z" />
             </svg>
           </button>
@@ -250,15 +250,15 @@ export default function MusicPlayer() {
           {/* Play/Pause */}
           <button
             onClick={togglePlay}
-            className="p-3 rounded-full bg-gradient-to-r from-pink-400 to-pink-500 hover:from-pink-500 hover:to-pink-600 text-white transition-all duration-300 hover:scale-105 shadow-md"
+            className="p-2.5 sm:p-3 rounded-full bg-gradient-to-r from-pink-400 to-pink-500 hover:from-pink-500 hover:to-pink-600 text-white transition-all duration-300 hover:scale-105 active:scale-95 shadow-md"
             aria-label={isPlaying ? 'Pause' : 'Play'}
           >
             {isPlaying ? (
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
               </svg>
             ) : (
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M8 5v14l11-7z" />
               </svg>
             )}
@@ -267,37 +267,37 @@ export default function MusicPlayer() {
           {/* Next Track */}
           <button
             onClick={nextTrack}
-            className="p-2 rounded-full hover:bg-pink-100 transition-colors"
+            className="p-1.5 sm:p-2 rounded-full hover:bg-pink-100 active:scale-95 transition-colors"
             aria-label="Next track"
           >
-            <svg className="w-5 h-5 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 sm:w-5 sm:h-5 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.933 12.8a1 1 0 000-1.6L6.6 7.2A1 1 0 005 8v8a1 1 0 001.6.8l5.333-4zM19.933 12.8a1 1 0 000-1.6l-5.333-4A1 1 0 0013 8v8a1 1 0 001.6.8l5.333-4z" />
             </svg>
           </button>
         </div>
 
         {/* Timer */}
-        <div className="mb-3 text-center">
-          <span className="text-xs text-gray-600 font-mono">
+        <div className="mb-2 sm:mb-3 text-center">
+          <span className="text-[10px] sm:text-xs text-gray-600 font-mono">
             {formatTime(currentTime)} / {formatTime(duration)}
           </span>
         </div>
 
         {/* Volume Control */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2">
           {/* Mute Button */}
           <button
             onClick={toggleMute}
-            className="p-1.5 rounded-full hover:bg-pink-100 transition-colors"
+            className="p-1 sm:p-1.5 rounded-full hover:bg-pink-100 active:scale-95 transition-colors"
             aria-label={isMuted ? 'Unmute' : 'Mute'}
           >
             {isMuted || volume === 0 ? (
-              <svg className="w-5 h-5 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
               </svg>
             ) : (
-              <svg className="w-5 h-5 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
               </svg>
             )}
@@ -311,12 +311,12 @@ export default function MusicPlayer() {
             step="0.01"
             value={isMuted ? 0 : volume}
             onChange={handleVolumeChange}
-            className="flex-1 h-2 bg-pink-200 rounded-lg appearance-none cursor-pointer accent-pink-500"
+            className="flex-1 h-1.5 sm:h-2 bg-pink-200 rounded-lg appearance-none cursor-pointer accent-pink-500"
             aria-label="Volume"
           />
 
           {/* Volume Percentage */}
-          <span className="text-xs text-gray-600 w-10 text-right">
+          <span className="text-[10px] sm:text-xs text-gray-600 w-8 sm:w-10 text-right">
             {Math.round((isMuted ? 0 : volume) * 100)}%
           </span>
         </div>

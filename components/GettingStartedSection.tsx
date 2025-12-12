@@ -33,30 +33,30 @@ export default function GettingStartedSection() {
   return (
     <section id="getting-started" className="section-container bg-gradient-soft">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-center bg-gradient-to-r from-pink-500 to-pink-400 bg-clip-text text-transparent">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-center bg-gradient-to-r from-pink-500 to-pink-400 bg-clip-text text-transparent leading-tight">
           New to Solana or Phantom?
         </h2>
-        <p className="text-center text-gray-600 mb-12 text-lg">
+        <p className="text-center text-gray-600 mb-8 sm:mb-12 text-base sm:text-lg leading-relaxed">
           Follow these simple steps to join the Jigglypuff Kingdom
         </p>
 
-        <div className="space-y-6 mb-8">
+        <div className="space-y-4 sm:space-y-6 mb-6 sm:mb-8">
           {steps.map((step, index) => (
             <div
               key={step.number}
-              className="floating-card p-6 flex items-start gap-6 transform transition-all duration-300 hover:scale-[1.02]"
+              className="floating-card p-4 sm:p-6 flex items-start gap-4 sm:gap-6 transform transition-all duration-300 hover:scale-[1.02] active:scale-95"
             >
               <div className="flex-shrink-0">
-                <div className="w-16 h-16 bg-gradient-to-br from-pink-400 to-pink-500 rounded-2xl flex items-center justify-center text-3xl shadow-lg">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-pink-400 to-pink-500 rounded-xl sm:rounded-2xl flex items-center justify-center text-2xl sm:text-3xl shadow-lg">
                   {step.icon}
                 </div>
               </div>
-              <div className="flex-1">
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="text-2xl font-bold text-pink-500">0{step.number}</span>
-                  <h3 className="text-xl font-bold text-gray-800">{step.title}</h3>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 sm:gap-3 mb-1 sm:mb-2 flex-wrap">
+                  <span className="text-xl sm:text-2xl font-bold text-pink-500">0{step.number}</span>
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-800">{step.title}</h3>
                 </div>
-                <p className="text-gray-600">{step.description}</p>
+                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{step.description}</p>
               </div>
             </div>
           ))}
@@ -67,7 +67,7 @@ export default function GettingStartedSection() {
             href={phantomLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary inline-block"
+            className="btn-primary inline-block w-full sm:w-auto"
           >
             Download Phantom
           </a>

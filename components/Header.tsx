@@ -10,7 +10,6 @@ export default function Header() {
     { name: 'Story', href: '#origin-story' },
     { name: 'Community', href: '#collection-quest' },
     { name: 'Join the Movement', href: '#movement' },
-    { name: 'Index', href: 'https://jigglypuffindex.company/', external: true },
   ]
 
   const subLinks = [
@@ -25,10 +24,10 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-md border-b border-pink-100/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20">
+        <div className="flex items-center justify-between h-14 sm:h-16 md:h-20 max-h-[60px] sm:max-h-none">
           {/* Logo */}
           <div className="flex items-center">
-            <a href="#home" className="flex items-center space-x-2 group">
+            <a href="#home" className="flex items-center space-x-1.5 sm:space-x-2 group">
               <div className="relative w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0">
                 <Image
                   src="/jigglypuff.webp"
@@ -36,9 +35,10 @@ export default function Header() {
                   fill
                   className="object-contain"
                   priority
+                  sizes="(max-width: 640px) 40px, 48px"
                 />
               </div>
-              <span className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-pink-500 to-pink-400 bg-clip-text text-transparent">
+              <span className="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-pink-500 to-pink-400 bg-clip-text text-transparent">
                 $JIGGLYPUFF
               </span>
             </a>
@@ -50,10 +50,8 @@ export default function Header() {
               <a
                 key={link.name}
                 href={link.href}
-                target={link.external ? '_blank' : undefined}
-                rel={link.external ? 'noopener noreferrer' : undefined}
                 className={`px-5 py-2.5 text-gray-700 hover:text-white font-medium rounded-full bg-white/80 hover:bg-gradient-to-r hover:from-pink-400 hover:to-pink-500 border border-pink-200/50 hover:border-pink-400/50 transition-all duration-300 hover:scale-105 backdrop-blur-sm ${
-                  index === 0 ? 'bubble-float' : index === 1 ? 'bubble-float-delay-1' : index === 2 ? 'bubble-float-delay-2' : ''
+                  index === 0 ? 'bubble-float' : index === 1 ? 'bubble-float-delay-1' : 'bubble-float-delay-2'
                 }`}
                 style={{
                   boxShadow: '0 8px 16px rgba(244, 114, 182, 0.4), 0 4px 8px rgba(244, 114, 182, 0.3)',
@@ -113,11 +111,9 @@ export default function Header() {
                 <a
                   key={link.name}
                   href={link.href}
-                  target={link.external ? '_blank' : undefined}
-                  rel={link.external ? 'noopener noreferrer' : undefined}
                   onClick={() => setIsMenuOpen(false)}
                   className={`px-5 py-3 text-gray-700 hover:text-white font-medium rounded-full bg-white/80 hover:bg-gradient-to-r hover:from-pink-400 hover:to-pink-500 border border-pink-200/50 hover:border-pink-400/50 transition-all duration-300 active:scale-95 backdrop-blur-sm ${
-                    index === 0 ? 'bubble-float' : index === 1 ? 'bubble-float-delay-1' : index === 2 ? 'bubble-float-delay-2' : ''
+                    index === 0 ? 'bubble-float' : index === 1 ? 'bubble-float-delay-1' : 'bubble-float-delay-2'
                   }`}
                   style={{
                     boxShadow: '0 8px 16px rgba(244, 114, 182, 0.4), 0 4px 8px rgba(244, 114, 182, 0.3)',
