@@ -2,56 +2,14 @@
 
 import { useEffect, useRef } from 'react'
 
-interface Tweet {
-  id: string
-  text: string
-  author: string
-  url: string
-  timestamp: string
-}
-
 export default function NewsScrollbar() {
   const scrollRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
 
-  // Preset tweets - replace with actual tweet URLs
-  const tweets: Tweet[] = [
-    {
-      id: '1',
-      text: 'Thread 🧵: Growing the Jigglypuff Kingdom IRL',
-      author: '@JigglypuffKing_',
-      url: 'https://x.com/JigglypuffKing_/status/1996311559841411286',
-      timestamp: '2h ago'
-    },
-    {
-      id: '2',
-      text: 'They see the vision. Do you?',
-      author: '@JigglypuffKing_',
-      url: 'https://x.com/JigglypuffKing_/status/1996244306684985576?s=20',
-      timestamp: '5h ago'
-    },
-    {
-      id: '3',
-      text: 'Listen, she didn’t even have Jigglypuff in her top 3',
-      author: '@JigglypuffKing_',
-      url: 'https://x.com/JigglypuffKing_/status/1995975483595653167',
-      timestamp: '1d ago'
-    },
-    {
-      id: '4',
-      text: 'Boots on the ground time.',
-      author: '@JigglypuffKing_',
-      url: 'https://x.com/JigglypuffKing_/status/1995959715252371956',
-      timestamp: '2d ago'
-    },
-    {
-      id: '5',
-      text: 'It’s not about my collection, it’s about our collection.',
-      author: '@JigglypuffKing_',
-      url: 'https://x.com/JigglypuffKing_/status/1995919606104678542',
-      timestamp: '3d ago'
-    },
-  ]
+  const jkIndexLinks = {
+    viewIndex: 'https://jkindex.io',
+    learnMore: 'https://docs.jkindex.io'
+  }
 
   useEffect(() => {
     const scrollContainer = scrollRef.current
@@ -95,69 +53,71 @@ export default function NewsScrollbar() {
   return (
     <div className="fixed top-14 sm:top-16 md:top-20 left-0 right-0 z-40 bg-gradient-to-r from-pink-500 to-pink-400 text-white py-2 sm:py-3 shadow-lg border-b border-pink-300/50">
       <div className="flex items-center overflow-hidden">
-        {/* News Label */}
+        {/* JK Index Label */}
         <div className="flex-shrink-0 px-3 sm:px-4 md:px-6 lg:px-8 bg-pink-600/80 backdrop-blur-sm z-10 rounded-r-full shadow-lg border-r-2 border-pink-700/50 relative">
           <div className="flex items-center space-x-1.5 sm:space-x-2 whitespace-nowrap">
-            <span className="text-base sm:text-lg font-bold">📰</span>
-            <span className="font-bold text-xs sm:text-sm md:text-base">Latest News</span>
+            <span className="text-base sm:text-lg font-bold">🚧</span>
+            <span className="font-bold text-xs sm:text-sm md:text-base">JK Index</span>
           </div>
           {/* Tube entrance effect */}
           <div className="absolute right-0 top-0 bottom-0 w-6 sm:w-8 bg-gradient-to-r from-pink-600/80 to-transparent pointer-events-none"></div>
         </div>
 
-        {/* Scrolling Tweets */}
+        {/* Scrolling Content */}
         <div
           ref={scrollRef}
           className="flex-1 overflow-x-hidden scrollbar-hide relative"
         >
           {/* Fade effect at the entrance */}
           <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-12 bg-gradient-to-r from-pink-500 via-pink-500/80 to-transparent z-10 pointer-events-none"></div>
-          <div ref={contentRef} className="flex items-center space-x-4 sm:space-x-6 md:space-x-8 whitespace-nowrap">
-            {tweets.map((tweet) => (
+          <div ref={contentRef} className="flex items-center space-x-6 sm:space-x-8 md:space-x-12 whitespace-nowrap">
+            {/* First set */}
+            <div className="flex items-center space-x-3 sm:space-x-4 md:space-x-6 flex-shrink-0">
+              <span className="text-xs sm:text-sm md:text-base font-medium">
+                We're building the JK Index — a real-time pricing & data platform for Pokémon collectors.
+              </span>
               <a
-                key={tweet.id}
-                href={tweet.url}
+                href={jkIndexLinks.viewIndex}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-2 sm:space-x-3 md:space-x-4 hover:text-pink-100 transition-colors duration-200 group flex-shrink-0 active:scale-95"
+                className="px-3 sm:px-4 py-1 sm:py-1.5 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 active:scale-95 border border-white/30"
               >
-                <div className="flex items-center space-x-2 sm:space-x-3">
-                  <span className="text-pink-200 group-hover:text-pink-100 text-sm sm:text-base">🐦</span>
-                  <span className="text-xs sm:text-sm md:text-base font-medium">
-                    {tweet.text}
-                  </span>
-                  <span className="text-pink-200 text-[10px] sm:text-xs md:text-sm hidden sm:inline">
-                    {tweet.author} • {tweet.timestamp}
-                  </span>
-                </div>
-                <span className="text-pink-200 group-hover:text-white text-sm sm:text-base">→</span>
+                View JK Index →
               </a>
-            ))}
+              <a
+                href={jkIndexLinks.learnMore}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 sm:px-4 py-1 sm:py-1.5 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 active:scale-95 border border-white/30"
+              >
+                Learn More →
+              </a>
+            </div>
             {/* Duplicate for seamless loop */}
-            {tweets.map((tweet) => (
+            <div className="flex items-center space-x-3 sm:space-x-4 md:space-x-6 flex-shrink-0">
+              <span className="text-xs sm:text-sm md:text-base font-medium">
+                We're building the JK Index — a real-time pricing & data platform for Pokémon collectors.
+              </span>
               <a
-                key={`${tweet.id}-dup`}
-                href={tweet.url}
+                href={jkIndexLinks.viewIndex}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-2 sm:space-x-3 md:space-x-4 hover:text-pink-100 transition-colors duration-200 group flex-shrink-0 active:scale-95"
+                className="px-3 sm:px-4 py-1 sm:py-1.5 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 active:scale-95 border border-white/30"
               >
-                <div className="flex items-center space-x-2 sm:space-x-3">
-                  <span className="text-pink-200 group-hover:text-pink-100 text-sm sm:text-base">🐦</span>
-                  <span className="text-xs sm:text-sm md:text-base font-medium">
-                    {tweet.text}
-                  </span>
-                  <span className="text-pink-200 text-[10px] sm:text-xs md:text-sm hidden sm:inline">
-                    {tweet.author} • {tweet.timestamp}
-                  </span>
-                </div>
-                <span className="text-pink-200 group-hover:text-white text-sm sm:text-base">→</span>
+                View JK Index →
               </a>
-            ))}
+              <a
+                href={jkIndexLinks.learnMore}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 sm:px-4 py-1 sm:py-1.5 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 active:scale-95 border border-white/30"
+              >
+                Learn More →
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   )
 }
-
