@@ -55,11 +55,11 @@ export default function NewsScrollbar() {
   return (
     <div className="fixed top-14 sm:top-16 md:top-20 left-0 right-0 z-40 bg-gradient-to-r from-pink-500 to-pink-400 text-white py-2 sm:py-3 shadow-lg border-b border-pink-300/50">
       <div className="flex items-center overflow-hidden">
-        {/* JK Index Label */}
+        {/* Latest News Label */}
         <div className="flex-shrink-0 px-3 sm:px-4 md:px-6 lg:px-8 bg-pink-600/80 backdrop-blur-sm z-10 rounded-r-full shadow-lg border-r-2 border-pink-700/50 relative">
           <div className="flex items-center space-x-1.5 sm:space-x-2 whitespace-nowrap">
-            <span className="text-base sm:text-lg font-bold">🚧</span>
-            <span className="font-bold text-xs sm:text-sm md:text-base">JK Index</span>
+            <span className="text-base sm:text-lg font-bold">📰</span>
+            <span className="font-bold text-xs sm:text-sm md:text-base">Latest News</span>
           </div>
           {/* Tube entrance effect */}
           <div className="absolute right-0 top-0 bottom-0 w-6 sm:w-8 bg-gradient-to-r from-pink-600/80 to-transparent pointer-events-none"></div>
