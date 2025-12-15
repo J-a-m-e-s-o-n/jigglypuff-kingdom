@@ -2,14 +2,18 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   const navLinks = [
-    { name: 'Story', href: '#origin-story' },
-    { name: 'Community', href: '#collection-quest' },
-    { name: 'Join the Movement', href: '#movement' },
+    { name: 'Story', href: '#origin-story', isHash: true },
+    { name: 'Community', href: '#collection-quest', isHash: true },
+    { name: 'Join the Movement', href: '#movement', isHash: true },
+    { name: 'Media', href: '/media', isHash: false },
   ]
 
   const subLinks = [
@@ -46,20 +50,41 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-3">
-            {navLinks.map((link, index) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className={`px-5 py-2.5 text-gray-700 hover:text-white font-medium rounded-full bg-white/80 hover:bg-gradient-to-r hover:from-pink-400 hover:to-pink-500 border border-pink-200/50 hover:border-pink-400/50 transition-all duration-300 hover:scale-105 backdrop-blur-sm ${
-                  index === 0 ? 'bubble-float' : index === 1 ? 'bubble-float-delay-1' : 'bubble-float-delay-2'
-                }`}
-                style={{
-                  boxShadow: '0 8px 16px rgba(244, 114, 182, 0.4), 0 4px 8px rgba(244, 114, 182, 0.3)',
-                }}
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link, index) => {
+              const isActive = !link.isHash && pathname === link.href
+              const className = `px-5 py-2.5 text-gray-700 hover:text-white font-medium rounded-full bg-white/80 hover:bg-gradient-to-r hover:from-pink-400 hover:to-pink-500 border border-pink-200/50 hover:border-pink-400/50 transition-all duration-300 hover:scale-105 backdrop-blur-sm ${
+                isActive ? 'bg-gradient-to-r from-pink-400 to-pink-500 text-white' : ''
+              } ${
+                index === 0 ? 'bubble-float' : index === 1 ? 'bubble-float-delay-1' : index === 2 ? 'bubble-float-delay-2' : ''
+              }`
+              const style = {
+                boxShadow: '0 8px 16px rgba(244, 114, 182, 0.4), 0 4px 8px rgba(244, 114, 182, 0.3)',
+              }
+              
+              if (link.isHash) {
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className={className}
+                    style={style}
+                  >
+                    {link.name}
+                  </a>
+                )
+              }
+              
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className={className}
+                  style={style}
+                >
+                  {link.name}
+                </Link>
+              )
+            })}
             
             {/* Dropdown for sublinks */}
             <div className="relative group">
@@ -107,21 +132,43 @@ export default function Header() {
         {isMenuOpen && (
           <div className="lg:hidden pb-4 border-t border-pink-100/50 mt-2 pt-4">
             <nav className="flex flex-col space-y-2">
-              {navLinks.map((link, index) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`px-5 py-3 text-gray-700 hover:text-white font-medium rounded-full bg-white/80 hover:bg-gradient-to-r hover:from-pink-400 hover:to-pink-500 border border-pink-200/50 hover:border-pink-400/50 transition-all duration-300 active:scale-95 backdrop-blur-sm ${
-                    index === 0 ? 'bubble-float' : index === 1 ? 'bubble-float-delay-1' : 'bubble-float-delay-2'
-                  }`}
-                  style={{
-                    boxShadow: '0 8px 16px rgba(244, 114, 182, 0.4), 0 4px 8px rgba(244, 114, 182, 0.3)',
-                  }}
-                >
-                  {link.name}
-                </a>
-              ))}
+              {navLinks.map((link, index) => {
+                const isActive = !link.isHash && pathname === link.href
+                const className = `px-5 py-3 text-gray-700 hover:text-white font-medium rounded-full bg-white/80 hover:bg-gradient-to-r hover:from-pink-400 hover:to-pink-500 border border-pink-200/50 hover:border-pink-400/50 transition-all duration-300 active:scale-95 backdrop-blur-sm ${
+                  isActive ? 'bg-gradient-to-r from-pink-400 to-pink-500 text-white' : ''
+                } ${
+                  index === 0 ? 'bubble-float' : index === 1 ? 'bubble-float-delay-1' : index === 2 ? 'bubble-float-delay-2' : ''
+                }`
+                const style = {
+                  boxShadow: '0 8px 16px rgba(244, 114, 182, 0.4), 0 4px 8px rgba(244, 114, 182, 0.3)',
+                }
+                
+                if (link.isHash) {
+                  return (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      onClick={() => setIsMenuOpen(false)}
+                      className={className}
+                      style={style}
+                    >
+                      {link.name}
+                    </a>
+                  )
+                }
+                
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={className}
+                    style={style}
+                  >
+                    {link.name}
+                  </Link>
+                )
+              })}
               <div className="px-5 py-2 text-gray-500 font-semibold text-sm uppercase tracking-wide mt-2">
                 More
               </div>
