@@ -18,16 +18,16 @@ export default function NewsScrollbar() {
 
     let scrollPosition = 0
     let animationId: number | null = null
-    const scrollSpeed = 0.5 // Adjust speed (pixels per frame)
+    const scrollSpeed = 0.8 // Adjust speed (pixels per frame)
 
     const scroll = () => {
-      const contentWidth = content.scrollWidth / 2 // Since we duplicate content
+      const singleContentWidth = content.children[0]?.clientWidth || 0
       
-      if (contentWidth > 0) {
+      if (singleContentWidth > 0) {
         scrollPosition += scrollSpeed
         
-        // Reset scroll position when it reaches halfway (end of first set)
-        if (scrollPosition >= contentWidth) {
+        // Reset scroll position when it reaches the end of first set
+        if (scrollPosition >= singleContentWidth) {
           scrollPosition = 0
         }
         
@@ -39,8 +39,10 @@ export default function NewsScrollbar() {
 
     // Start scrolling after a small delay to ensure content is rendered
     const timeoutId = setTimeout(() => {
-      animationId = requestAnimationFrame(scroll)
-    }, 100)
+      if (scrollContainer && content) {
+        animationId = requestAnimationFrame(scroll)
+      }
+    }, 300)
 
     return () => {
       clearTimeout(timeoutId)
@@ -66,14 +68,15 @@ export default function NewsScrollbar() {
         {/* Scrolling Content */}
         <div
           ref={scrollRef}
-          className="flex-1 overflow-x-hidden scrollbar-hide relative"
+          className="flex-1 overflow-x-auto scrollbar-hide relative"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {/* Fade effect at the entrance */}
           <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-12 bg-gradient-to-r from-pink-500 via-pink-500/80 to-transparent z-10 pointer-events-none"></div>
-          <div ref={contentRef} className="flex items-center space-x-6 sm:space-x-8 md:space-x-12 whitespace-nowrap">
+          <div ref={contentRef} className="flex items-center space-x-8 sm:space-x-12 md:space-x-16 whitespace-nowrap px-4">
             {/* First set */}
-            <div className="flex items-center space-x-3 sm:space-x-4 md:space-x-6 flex-shrink-0">
-              <span className="text-xs sm:text-sm md:text-base font-medium">
+            <div className="flex items-center space-x-4 sm:space-x-6 md:space-x-8 flex-shrink-0">
+              <span className="text-xs sm:text-sm md:text-base font-medium whitespace-nowrap">
                 We're building the JK Index — a real-time pricing & data platform for Pokémon collectors.
               </span>
               <a
@@ -94,8 +97,8 @@ export default function NewsScrollbar() {
               </a>
             </div>
             {/* Duplicate for seamless loop */}
-            <div className="flex items-center space-x-3 sm:space-x-4 md:space-x-6 flex-shrink-0">
-              <span className="text-xs sm:text-sm md:text-base font-medium">
+            <div className="flex items-center space-x-4 sm:space-x-6 md:space-x-8 flex-shrink-0">
+              <span className="text-xs sm:text-sm md:text-base font-medium whitespace-nowrap">
                 We're building the JK Index — a real-time pricing & data platform for Pokémon collectors.
               </span>
               <a
