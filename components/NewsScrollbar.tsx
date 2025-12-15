@@ -19,9 +19,12 @@ export default function NewsScrollbar() {
     let scrollPosition = 0
     let animationId: number | null = null
     const scrollSpeed = 0.8 // Adjust speed (pixels per frame)
+    let isScrolling = false
 
     const scroll = () => {
-      const singleContentWidth = content.children[0]?.clientWidth || 0
+      // Get the first child element width (one set of content)
+      const firstChild = content.children[0] as HTMLElement
+      const singleContentWidth = firstChild?.offsetWidth || firstChild?.clientWidth || 0
       
       if (singleContentWidth > 0) {
         scrollPosition += scrollSpeed
@@ -32,14 +35,19 @@ export default function NewsScrollbar() {
         }
         
         scrollContainer.scrollLeft = scrollPosition
+        isScrolling = true
+        animationId = requestAnimationFrame(scroll)
+      } else {
+        // If content width not available yet, try again
+        animationId = requestAnimationFrame(scroll)
       }
-      
-      animationId = requestAnimationFrame(scroll)
     }
 
-    // Start scrolling after a small delay to ensure content is rendered
+    // Start scrolling after a delay to ensure content is rendered and measured
     const timeoutId = setTimeout(() => {
       if (scrollContainer && content) {
+        // Force a layout recalculation
+        scrollContainer.offsetHeight
         animationId = requestAnimationFrame(scroll)
       }
     }, 300)
@@ -54,7 +62,7 @@ export default function NewsScrollbar() {
 
   return (
     <div className="fixed top-14 sm:top-16 md:top-20 left-0 right-0 z-40 bg-gradient-to-r from-pink-500 to-pink-400 text-white py-2 sm:py-3 shadow-lg border-b border-pink-300/50">
-      <div className="flex items-center overflow-hidden">
+      <div className="flex items-center">
         {/* Latest News Label */}
         <div className="flex-shrink-0 px-3 sm:px-4 md:px-6 lg:px-8 bg-pink-600/80 backdrop-blur-sm z-10 rounded-r-full shadow-lg border-r-2 border-pink-700/50 relative">
           <div className="flex items-center space-x-1.5 sm:space-x-2 whitespace-nowrap">
@@ -68,8 +76,12 @@ export default function NewsScrollbar() {
         {/* Scrolling Content */}
         <div
           ref={scrollRef}
-          className="flex-1 overflow-x-auto scrollbar-hide relative"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          className="flex-1 overflow-x-auto scrollbar-hide relative min-w-0"
+          style={{ 
+            scrollbarWidth: 'none', 
+            msOverflowStyle: 'none',
+            WebkitOverflowScrolling: 'touch'
+          }}
         >
           {/* Fade effect at the entrance */}
           <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-12 bg-gradient-to-r from-pink-500 via-pink-500/80 to-transparent z-10 pointer-events-none"></div>
