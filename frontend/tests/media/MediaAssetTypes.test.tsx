@@ -37,7 +37,7 @@ describe('MediaAssetTypes', () => {
 
   it('.jpeg files render as <img>', () => {
     render(<MediaPage />)
-    const jpegImage = screen.getByRole('main').querySelector('img[src="/media/Director.JPEG"]')
+    const jpegImage = screen.getByRole('main').querySelector('img[src="/media/Director.jpg"]')
     expect(jpegImage).toBeInTheDocument()
     expect(jpegImage?.tagName).toBe('IMG')
   })

@@ -21,7 +21,7 @@ export default function MediaPage() {
         data-media-item
         className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-pink-200/50 hover:border-pink-400/50 transition-all duration-300 hover:scale-105 flex flex-col"
         role="article"
-        aria-label={`Media item: ${asset.filename}`}
+        aria-label={`Media item: ${asset.title}`}
       >
         <div className="mb-3 flex items-center justify-center min-h-[200px] bg-gray-50/50 rounded-lg">
           {isVideo && (
@@ -29,7 +29,7 @@ export default function MediaPage() {
               src={asset.src}
               controls
               className="max-w-full max-h-full w-auto h-auto object-contain rounded-lg"
-              aria-label={asset.filename}
+              aria-label={asset.title}
             >
               Your browser does not support the video tag.
             </video>
@@ -37,14 +37,14 @@ export default function MediaPage() {
           {isImage && (
             <img
               src={asset.src}
-              alt={asset.filename}
+              alt={asset.title}
               className="max-w-full max-h-full w-auto h-auto object-contain rounded-lg"
             />
           )}
         </div>
         <div className="flex items-center justify-between">
           <span className="text-sm text-gray-700 font-medium truncate flex-1 mr-2">
-            {asset.filename}
+            {asset.title}
           </span>
           <a
             href={asset.src}
@@ -52,7 +52,7 @@ export default function MediaPage() {
             className="px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-pink-400 to-pink-500 rounded-full hover:from-pink-500 hover:to-pink-600 transition-all duration-300 shadow-md hover:shadow-lg"
             role="button"
             tabIndex={0}
-            aria-label={`Download ${asset.filename}`}
+            aria-label={`Download ${asset.title}`}
           >
             Download
           </a>
