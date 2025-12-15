@@ -4,8 +4,12 @@ import Image from 'next/image'
 
 export default function CollectionQuestSection() {
   // Placeholder values - replace with dynamic data from backend
-  const cardsCollected = 245
-  const estimatedTotalValue = '14'
+  const cardsCollected = 177
+  const priceHistory = {
+    start: '$2',
+    current: '$17',
+    label: 'ATH for Near Mint'
+  }
   const nextTarget = '2000 cards'
 
   return (
@@ -33,11 +37,15 @@ export default function CollectionQuestSection() {
           <div className="text-sm sm:text-base text-gray-600 font-medium">Cards Collected</div>
         </div>
 
-        {/* Estimated Total Value Stat */}
+        {/* Price History Stat */}
         <div className="floating-card p-6 sm:p-8 text-center transform transition-all duration-300 hover:scale-105 active:scale-95">
-          <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">💎</div>
-          <div className="text-3xl sm:text-4xl font-bold text-pink-600 mb-1 sm:mb-2">{estimatedTotalValue}</div>
-          <div className="text-sm sm:text-base text-gray-600 font-medium">PSA Graded Cards</div>
+          <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">📈</div>
+          <div className="flex items-center justify-center gap-2 mb-1 sm:mb-2">
+            <span className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-500 line-through">{priceHistory.start}</span>
+            <span className="text-pink-400 text-lg sm:text-xl">→</span>
+            <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-pink-600">{priceHistory.current}</span>
+          </div>
+          <div className="text-xs sm:text-sm text-gray-600 font-medium">{priceHistory.label}</div>
         </div>
 
         {/* Next Target Stat */}
