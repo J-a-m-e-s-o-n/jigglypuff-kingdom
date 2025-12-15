@@ -12,7 +12,7 @@ export default function CreatorFeeSection() {
           </h2>
           
           <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-6 sm:mb-8 leading-relaxed max-w-3xl mx-auto px-2">
-            100% of creator fees from $JIGGLYPUFF go directly toward buying more 1st Edition Jigglypuff cards — strengthening the narrative, the collection, and the kingdom.
+            100% of creator fees from $JIGGLYPUFF fund the mission — growing the 1st Edition Jigglypuff collection and building the JK Index, turning the collection into real tools for collectors everywhere.
           </p>
 
           <a
