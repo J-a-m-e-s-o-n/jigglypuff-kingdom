@@ -5,8 +5,14 @@ import { usePathname } from 'next/navigation'
 
 // Mock next/navigation
 const mockUsePathname = jest.fn(() => '/')
+const mockPush = jest.fn()
 jest.mock('next/navigation', () => ({
   usePathname: () => mockUsePathname(),
+  useRouter: () => ({
+    push: mockPush,
+    replace: jest.fn(),
+    prefetch: jest.fn(),
+  }),
 }))
 
 describe('MediaNavIntegration', () => {

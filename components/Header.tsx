@@ -3,11 +3,17 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
+  const router = useRouter()
+
+  const handleHashClick = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
+    e.preventDefault()
+    router.push(`/${hash}`)
+  }
 
   const navLinks = [
     { name: 'Story', href: '#origin-story', isHash: true },
@@ -31,7 +37,11 @@ export default function Header() {
         <div className="flex items-center justify-between h-14 sm:h-16 md:h-20 max-h-[60px] sm:max-h-none">
           {/* Logo */}
           <div className="flex items-center">
-            <a href="#home" className="flex items-center space-x-1.5 sm:space-x-2 group">
+            <a 
+              href="#home" 
+              onClick={(e) => handleHashClick(e, '#home')}
+              className="flex items-center space-x-1.5 sm:space-x-2 group"
+            >
               <div className="relative w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0">
                 <Image
                   src="/jigglypuff.webp"
@@ -66,6 +76,7 @@ export default function Header() {
                   <a
                     key={link.name}
                     href={link.href}
+                    onClick={(e) => handleHashClick(e, link.href)}
                     className={className}
                     style={style}
                   >
@@ -102,6 +113,7 @@ export default function Header() {
                     <a
                       key={link.name}
                       href={link.href}
+                      onClick={(e) => handleHashClick(e, link.href)}
                       className="block px-5 py-2.5 text-gray-700 hover:text-white hover:bg-gradient-to-r hover:from-pink-400 hover:to-pink-500 transition-all duration-200 mx-1 rounded-full"
                     >
                       {link.name}
@@ -148,7 +160,10 @@ export default function Header() {
                     <a
                       key={link.name}
                       href={link.href}
-                      onClick={() => setIsMenuOpen(false)}
+                      onClick={(e) => {
+                        handleHashClick(e, link.href)
+                        setIsMenuOpen(false)
+                      }}
                       className={className}
                       style={style}
                     >
@@ -176,7 +191,10 @@ export default function Header() {
                 <a
                   key={link.name}
                   href={link.href}
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={(e) => {
+                    handleHashClick(e, link.href)
+                    setIsMenuOpen(false)
+                  }}
                   className="px-5 py-3 ml-4 text-gray-700 hover:text-white font-medium rounded-full bg-white/80 hover:bg-gradient-to-r hover:from-pink-400 hover:to-pink-500 shadow-md hover:shadow-lg border border-pink-200/50 hover:border-pink-400/50 transition-all duration-300 active:scale-95 backdrop-blur-sm"
                 >
                   {link.name}
