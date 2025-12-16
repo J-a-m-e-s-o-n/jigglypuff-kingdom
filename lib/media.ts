@@ -8,6 +8,13 @@ export interface MediaAsset {
 
 export const mediaAssets: MediaAsset[] = [
   {
+    id: 'jpeg-2',
+    type: 'jpeg',
+    src: '/media/Detective.JPEG',
+    filename: 'Detective.JPEG',
+    title: 'Detective Jigglypuff',
+  },
+  {
     id: 'png-3',
     type: 'png',
     src: '/media/DiamondJiggly.png',
