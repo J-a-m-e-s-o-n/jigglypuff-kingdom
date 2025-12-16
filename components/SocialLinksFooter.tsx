@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import TrademarkDisclaimer from './TrademarkDisclaimer'
 
 export default function SocialLinksFooter() {
   const [copied, setCopied] = useState(false)
@@ -88,10 +89,13 @@ export default function SocialLinksFooter() {
           </div>
         </div>
 
+        {/* Trademark Disclaimer */}
+        <TrademarkDisclaimer />
+
         {/* Footer Text */}
         <div className="text-center pt-6 sm:pt-8 border-t border-pink-200">
           <p className="text-gray-600 text-xs sm:text-sm">
-            © 2024 Jigglypuff Kingdom. Community-powered.
+            © 2025 Jigglypuff Kingdom. All original content. Community-powered.
           </p>
         </div>
       </div>
