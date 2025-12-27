@@ -87,7 +87,7 @@ export default function IndexSection() {
             {/* CTA Button */}
             <div className="text-center mt-6 sm:mt-8">
               <a
-                href="https://jigglypuffindex.company/"
+                href="https://jkindex.io/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary inline-block w-full sm:w-auto"
