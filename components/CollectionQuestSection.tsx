@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 export default function CollectionQuestSection() {
   // Placeholder values - replace with dynamic data from backend
-  const cardsCollected = 181
+  const cardsCollected = 201
   const priceHistory = {
     start: '$2',
     current: '$17',
