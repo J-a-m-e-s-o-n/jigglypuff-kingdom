@@ -37,6 +37,20 @@ export const mediaAssets: MediaAsset[] = [
     title: 'Locked In Jigglypuff',
   },
   {
+    id: 'jpeg-one-piece',
+    type: 'jpeg',
+    src: '/media/OnePiece.jpeg',
+    filename: 'OnePiece.jpeg',
+    title: 'One Piece Jigglypuff',
+  },
+  {
+    id: 'jpeg-starters',
+    type: 'jpeg',
+    src: '/media/Starters.jpg',
+    filename: 'Starters.jpg',
+    title: 'Starters',
+  },
+  {
     id: 'png-diamond',
     type: 'png',
     src: '/media/DiamondJiggly.png',
@@ -105,6 +119,13 @@ export const mediaAssets: MediaAsset[] = [
     src: '/media/sad close.png',
     filename: 'sad close.png',
     title: 'Sad Jigglypuff (Close Up)',
+  },
+  {
+    id: 'png-jigglypudge',
+    type: 'png',
+    src: '/media/Jigglypudge.png',
+    filename: 'Jigglypudge.png',
+    title: 'Jigglypudge',
   },
   {
     id: 'gif-banner',
@@ -253,5 +274,12 @@ export const mediaAssets: MediaAsset[] = [
     src: '/media/merry christmas.MOV',
     filename: 'merry christmas.MOV',
     title: 'Merry Christmas',
+  },
+  {
+    id: 'mov-index',
+    type: 'mov',
+    src: '/media/Index.MOV',
+    filename: 'Index.MOV',
+    title: 'Index',
   },
 ]
